@@ -245,101 +245,28 @@ button {
 }
 
 /* ===== instagram ===== */
-.instagram-box {
-    display: block;
-    margin: 100px auto;
-    width: 70%;
-    background-color: rgba(173, 216, 230, 0.3);
-    padding-bottom: 30px;
-    border-radius: 20px;
+.insta-feed {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
 }
-
-.instagram-box h2 {
-    font-size: 1.8rem;
-    text-align: center;
-    border-bottom: 2px dashed #7e5f4d;
+.insta-feed a {
+  display: block;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
 }
-
-.instagram-box p {
-    margin-bottom: 20px;
+.insta-feed img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: opacity .2s;
 }
-
-.insta_description {
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-    border-bottom: 1px solid #7e5f4d;
+.insta-feed a:hover img {
+  opacity: .8;
 }
-
-.insta_description img {
-    border-radius: 50%;
-    width: 80px;
-    height: 80px;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-}
-
-.insta_btn2 {
-    color: #fff;
-    border-radius: 7px;
-    position: relative;
-    display: inline-block;
-    height: 50px;
-    width: 190px;
-    text-align: center;
-    font-size: 25px;
-    line-height: 50px;
-    background: linear-gradient(135deg, #427eff 0%, #f13f79 70%) no-repeat;
-    overflow: hidden;
-    text-decoration: none;
-    margin-bottom: 30px;
-}
-
-.insta_btn2:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(15deg, #ffdb2c, rgb(249, 118, 76) 25%, rgba(255, 77, 64, 0) 50%) no-repeat;
-}
-
-.insta_btn2 .fa-instagram {
-    font-size: 35px;
-    position: relative;
-    top: 4px;
-}
-
-.insta_btn2 span {
-    display: inline-block;
-    position: relative;
-    transition: .5s;
-}
-
-.insta_btn2:hover span {
-    transform: rotateX(360deg);
-}
-
-ul.insta_list {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: stretch;
-}
-
-ul.insta_list li {
-    list-style: none;
-    width: calc((80% - 3vw) / 3);
-    margin-bottom: 1vw;
-}
-
-ul.insta_list img {
-    width: 80%;
-    height: 80%;
-    object-fit: cover;
+@media (max-width: 600px) {
+  .insta-feed { grid-template-columns: repeat(2, 1fr); }
 }
 
 /* ===== shop info ===== */
