@@ -249,6 +249,8 @@ button {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 8px;
+    background: #eee4d9;
+    padding: 60px 20px;
 }
 .insta-feed a {
   display: block;
