@@ -117,24 +117,8 @@
   </div>
 </section>
 
-<!-- Instagram
-<div class="instagram-box">
-    <h2>Instagram</h2>
-    <div class="insta_description">
-        <img src="img\logo_for_instagram.png" alt="@coocafe.89">
-        <p>@coocafe.89</p>
-        <p>Instagramでは本日のマフィン情報や営業時間のお知らせなどを毎朝更新しています<br>
-        ぜひフォローとチェックをお願いします！</p>
-        <a href="https://www.instagram.com/coocafe.89/" class="insta_btn2">
-        <i class="fab fa-instagram"></i> <span>Follow us!</span>
-        </a>
-    </div>
-
-    <div class="instagram_display">
-        <ul class="insta_list"></ul>
-    </div>
-
-</div> -->
+<!-- Instagram -->
+<div id="insta-feed" class="insta-feed"></div>
 
 <section class="shop-info" id="shop-info">
     <div class="container">
@@ -180,14 +164,31 @@
 <footer>
   <p>© coo cafe</p>
 </footer>  
-    <!-- hamburger menu -->
-     <script>
+<!-- hamburger menu -->
+<script>
   const hamburger = document.querySelector('.hamburger');
   const nav = document.querySelector('nav');
   hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('open');
     nav.classList.toggle('open');
   });
+</script>
+<!-- Instagram -->
+<script>
+fetch("./feed.json")
+  .then(res => res.json())
+  .then(json => {
+    const feed = document.getElementById("insta-feed");
+    json.data.forEach(post => {
+      const img = post.media_type === "VIDEO" ? post.thumbnail_url : post.media_url;
+      feed.insertAdjacentHTML("beforeend", `
+        <a href="${post.permalink}" target="_blank" rel="noopener">
+          <img src="${img}" alt="${(post.caption || "Instagramの投稿").slice(0, 50).replace(/"/g, "&quot;")}" loading="lazy">
+        </a>
+      `);
+    });
+  })
+  .catch(err => console.error("Instagram取得エラー:", err));
 </script>
 </body>
 </html>
