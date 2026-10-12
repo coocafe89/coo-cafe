@@ -267,6 +267,7 @@ button {
 }
 
 .insta-section {
+  margin-top: 20px;
   text-align: center;
 }
 .insta-lead {
@@ -465,26 +466,6 @@ footer {
         display: block;
         border-bottom: 1px solid #c4a98f;
         margin-bottom: 8px;
-    }
-
-    /* --- instagram --- */
-    .instagram-box {
-        width: 90%;
-        margin: 50px auto;
-    }
-
-    .insta_description p {
-        padding: 0 16px;
-        font-size: 0.9rem;
-    }
-
-    ul.insta_list li {
-        width: calc((80% - 2vw) / 2);
-    }
-
-    ul.insta_list img {
-        width: 95%;
-        height: 95%;
     }
 
     /* --- shop info --- */
